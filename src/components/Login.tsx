@@ -12,6 +12,7 @@ const Login: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+
     const handleSubmit = () => {
         const action: IAction = authenticate(username, password)
             ? {
@@ -25,15 +26,25 @@ const Login: React.FC = () => {
 
     return (
         <Container>
-            <Box component={"form"} onSubmit={handleSubmit}>
-                <TextField placeholder="Username"/>
+            <Box component={"form"}>
                 <TextField
-                    type={passwordVisible ? "text" : "password"}
-                    placeholder="Password"
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username"
+                    type={"input"}
                 />
             </Box>
-            <Button type="submit">
+            <Box>
+                <TextField
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    type={passwordVisible ? "text" : "password"}
+                />
+            </Box>
+            <Button onClick={handleSubmit}>
                 Login
+            </Button>
+            <Button onClick={() => setPasswordVisible(!passwordVisible)}>
+                {passwordVisible ? "Hide password" : "Show password"}
             </Button>
         </Container>
     );
