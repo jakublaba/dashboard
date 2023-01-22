@@ -1,4 +1,4 @@
-export const Orders = (): JSX.Element => {
+export const SalesChart = (): JSX.Element => {
     return (
         <div>
         </div>
