@@ -23,16 +23,16 @@ const Navbar: React.FC = () => {
             <AppBar position={"sticky"}>
                 <Toolbar>
                     {pages.map((page) => (
-                        <Link className={"button-81"} key={page} to={`/${page}`}>
+                        <Link className={"nav-button"} key={page} to={`/${page}`}>
                             {`${page.charAt(0).toUpperCase()}${page.slice(1)}`}
                         </Link>
                     ))}
                     {authenticated ? (
-                        <div className={"button-81"} onClick={logout}>
+                        <div className={"nav-button"} onClick={logout}>
                             Logout
                         </div>
                     ) : (
-                        <Link className={"button-81"} to={"/"}>
+                        <Link className={"nav-button"} to={"/"}>
                             Login
                         </Link>
                     )}
