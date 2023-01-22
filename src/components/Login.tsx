@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { authenticate } from "../auth/auth";
-import { useDispatch } from "react-redux";
-import IAction from "../types/auth-action.type";
+import {authenticate} from "../auth/auth";
+import {useDispatch} from "react-redux";
+import {IAction} from "../redux/actions";
 
 const Login: React.FC = () => {
     const dispatch = useDispatch();
@@ -14,21 +14,27 @@ const Login: React.FC = () => {
     const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
     const handleSubmit = () => {
         const action: IAction = authenticate(username, password)
-            ? { type: { username: username } }
-            : { type: "logout" };
+            ? {
+                type: "login",
+                username: username
+            } : {
+                type: "logout"
+            };
         dispatch(action);
     };
 
     return (
         <Container>
             <Box component={"form"} onSubmit={handleSubmit}>
-                <TextField placeholder="Username" />
+                <TextField placeholder="Username"/>
                 <TextField
                     type={passwordVisible ? "text" : "password"}
                     placeholder="Password"
                 />
-                <Button type="submit" />
             </Box>
+            <Button type="submit">
+                Login
+            </Button>
         </Container>
     );
 };
