@@ -26,29 +26,23 @@ const user2 = {
 
 const rating = 3.47;
 
-export const options = {
-  title: `Your average rating: ${rating}`,
-};
-
 export const CustomerFeedback = (): JSX.Element => {
   return (
-    <div>
-      <div style={{ float: "left" }}>
+    <div className="content">
+      <div className="chart">
         <Chart
           chartType="PieChart"
           data={data}
           width={"100%"}
-          height={"200px"}
-          style={{ color: "green" }}
+          height={"500px"}
         />
-      </div>
-      <div>
         <h4
           style={{
             clear: "both",
             float: "left",
-            padding: "0px 0px 100px 100px",
-            margin: "0px",
+            padding: "0px 0px 10% 25%",
+            margin: "0px 0px 0px 0px",
+            fontSize: "10px",
           }}
         >
           Your average rating: {rating}

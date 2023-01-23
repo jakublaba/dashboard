@@ -1,10 +1,9 @@
 import "../styles/Comment.css";
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
-import Typography from "@mui/material/Typography";
 import { User, UserProps } from "../model/User";
 import { FC } from "react";
+import StarIcon from "@mui/icons-material/Star";
 
 export const Comment: FC<UserProps> = ({ user }): JSX.Element => {
   return (
@@ -18,12 +17,20 @@ export const Comment: FC<UserProps> = ({ user }): JSX.Element => {
       </div>
       <div className="text-container">
         <h4 className="username">{user.name}</h4>
-        <Rating className="rating" name="read-only" value={3} readOnly />
+        <Rating
+          className="rating"
+          name="read-only"
+          value={3}
+          max={5}
+          readOnly
+          icon={<StarIcon fontSize="inherit" />}
+          sx={{
+            fontSize: "90%",
+          }}
+          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+        />
         <p className="comment">
           Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum... Lorem
-          ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum...
-          Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem
-          ipsum... Lorem ipsum... Lorem ipsum...
         </p>
       </div>
     </div>
