@@ -10,8 +10,6 @@ import Feedback from "./components/Feedback";
 import Orders from "./components/Orders";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 
-export const pages = ["orders", "feedback", "ranking", "chart", "account"];
-
 const darkTheme = createTheme({
     palette: {
         mode: "dark"

@@ -1,12 +1,13 @@
 import {AppBar, Toolbar} from "@mui/material";
 import React from "react";
-import {Link, Outlet} from "react-router-dom";
-import {pages} from "../../App";
+import {Outlet} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {IAuthState} from "../../redux/states";
 import {Dispatch} from "redux";
 import {IAction} from "../../redux/actions";
-import "../../styles/NavbarItem.css"
+import LangButton from "./LangButton";
+import ThemeButton from "./ThemeButton";
+import AccountButton from "./AccountButton";
 
 const Navbar: React.FC = () => {
     const authenticated = useSelector<IAuthState, boolean>(authState => authState.authenticated);
@@ -22,20 +23,9 @@ const Navbar: React.FC = () => {
         <>
             <AppBar position={"sticky"}>
                 <Toolbar>
-                    {pages.map((page) => (
-                        <Link className={"nav-button"} key={page} to={`/${page}`}>
-                            {`${page.charAt(0).toUpperCase()}${page.slice(1)}`}
-                        </Link>
-                    ))}
-                    {authenticated ? (
-                        <div className={"nav-button"} onClick={logout}>
-                            Logout
-                        </div>
-                    ) : (
-                        <Link className={"nav-button"} to={"/"}>
-                            Login
-                        </Link>
-                    )}
+                    <LangButton/>
+                    <ThemeButton/>
+                    <AccountButton/>
                 </Toolbar>
             </AppBar>
             <Outlet/>
