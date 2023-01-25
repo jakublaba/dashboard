@@ -7,7 +7,7 @@ import Ranking from "./components/Ranking";
 import Chart from "./components/Chart";
 import Account from "./components/Account";
 import Feedback from "./components/Feedback";
-import OrderList from "./components/widgets/orders/OrderList";
+import ProductList from "./components/widgets/products/ProductList";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 
 const darkTheme = createTheme({
@@ -21,7 +21,7 @@ const App: React.FC = () => {
         createRoutesFromElements([
             <Route element={<Navbar/>}>
                 <Route path="/" element={<Login/>}/>
-                <Route path="orders" element={<OrderList/>}/>
+                <Route path="orders" element={<ProductList/>}/>
                 <Route path="feedback" element={<Feedback/>}></Route>
                 <Route path="ranking" element={<Ranking/>}></Route>
                 <Route path="chart" element={<Chart/>}></Route>

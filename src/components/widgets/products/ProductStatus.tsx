@@ -9,11 +9,12 @@ const styles = new Map<StatusType, { card: string, font: string, text: string }>
     ["in", {card: "#254141", font: "#76CC9A", text: "In stock"}]
 ]);
 
-const Status: React.FC<{ status: StatusType }> = ({status}) => {
+const ProductStatus: React.FC<{ status: StatusType }> = ({status}) => {
     return (
         <Paper style={{
             textAlign: "center",
             width: "fit-content",
+            height: "fit-content",
             backgroundColor: styles.get(status)?.card,
             color: styles.get(status)?.font
         }}>
@@ -22,4 +23,4 @@ const Status: React.FC<{ status: StatusType }> = ({status}) => {
     );
 };
 
-export default Status;
+export default ProductStatus;
