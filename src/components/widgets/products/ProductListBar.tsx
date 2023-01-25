@@ -3,8 +3,8 @@ import {Button, IconButton, MenuItem, Stack} from "@mui/material";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../redux/store";
 import languages from "../../../redux/lang/languages";
+import {langSelector} from "../../../redux/lang/langSlice";
 
 export interface ProductListBarProps {
     sortCriteria: "rating" | "sold",
@@ -15,7 +15,7 @@ export interface ProductListBarProps {
 
 const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
     const {sortCriteria, sortAscending, toggleSortCriteriaHandler, toggleSortDirectionHandler} = {...productBarProps};
-    const lang = useSelector((state: RootState) => state.lang.current);
+    const lang = useSelector(langSelector);
 
     return (
         <MenuItem>

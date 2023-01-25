@@ -1,10 +1,10 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {RootState} from "../redux/store";
 import languages from "../redux/lang/languages";
+import {langSelector} from "../redux/lang/langSlice";
 
 const Account: React.FC = () => {
-    const lang = useSelector((state: RootState) => state.lang.current);
+    const lang = useSelector(langSelector);
     return (
         <div>
             <h1>

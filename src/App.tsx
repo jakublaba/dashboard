@@ -8,13 +8,13 @@ import Account from "./components/Account";
 import Feedback from "./components/Feedback";
 import ProductList from "./components/widgets/products/ProductList";
 import {CssBaseline, ThemeProvider} from "@mui/material";
-import {RootState} from "./redux/store";
 import {useSelector} from "react-redux";
 import themes from "./redux/theme/themes";
+import {themeSelector} from "./redux/theme/themeSlice";
 
 
 const App: React.FC = () => {
-    const themeMode = useSelector((state: RootState) => state.theme.current);
+    const themeMode = useSelector(themeSelector);
 
     const router = createBrowserRouter(
         createRoutesFromElements([
