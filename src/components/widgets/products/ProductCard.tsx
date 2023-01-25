@@ -22,7 +22,7 @@ const ProductCard: React.FC<Product> = (productProps) => {
     return (
         <MenuItem>
             <Stack spacing={5} direction={"row"}>
-                <img src={require(`./img/${productProps.imgSrc}.svg`)} alt={productProps.name}/>
+                <img src={require(`/src/resources/img/${productProps.imgSrc}.svg`)} alt={productProps.name}/>
                 {productProps.name}
                 <ProductStatus status={productProps.status}/>
                 <div>

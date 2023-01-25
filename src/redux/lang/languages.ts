@@ -17,7 +17,8 @@ const PL = {
             ["rating", "Śr ocena"],
             ["sold", "Sprzedanych"]
         ])
-    }
+    },
+    profPicAlt: "Zdjęcie profilowe"
 };
 
 const EN: typeof PL = {
@@ -37,7 +38,8 @@ const EN: typeof PL = {
             ["rating", "Avg rating"],
             ["sold", "Sold"]
         ])
-    }
+    },
+    profPicAlt: "Profile picture"
 }
 
 const languages = new Map<Lang, typeof PL>([
