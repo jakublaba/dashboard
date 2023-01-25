@@ -1,20 +1,22 @@
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import React, {useState} from "react";
+import React from "react";
 import {IconButton} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
+import {toggleTheme} from "../../redux/theme/themeSlice";
 
 const ThemeButton: React.FC = () => {
-    // TODO - this will be selector from store
-    const [mode, setMode] = useState<"light" | "dark">("dark");
+    const themeMode = useSelector((state: RootState) => state.theme.current);
+    const dispatch = useDispatch();
 
-    // TODO - this will dispatch an action
     const switchTheme = () => {
-        setMode(mode === "light" ? "dark" : "light");
+        dispatch(toggleTheme());
     };
 
     return (
         <IconButton onClick={switchTheme}>
-            {mode === "light"
+            {themeMode === "light"
                 ? (
                     <LightModeIcon/>
                 ) : (
