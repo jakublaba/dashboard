@@ -19,7 +19,6 @@ export interface Product {
 // TODO - improve text alignment
 const ProductCard: React.FC<Product> = (productProps) => {
     const lang = useSelector((state: RootState) => state.lang.current);
-
     return (
         <MenuItem>
             <Stack spacing={5} direction={"row"}>
