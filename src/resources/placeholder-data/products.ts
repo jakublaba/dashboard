@@ -1,4 +1,4 @@
-import {Product} from "../components/widgets/products/ProductCard";
+import {Product} from "../../components/widgets/products/ProductCard";
 
 const products: Product[] = [
     {

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import products from "../../../placeholder-data/products";
+import products from "../../../resources/placeholder-data/products";
 import ProductCard from "./ProductCard";
 import ProductListBar from "./ProductListBar";
 import {MenuList} from "@mui/material";
