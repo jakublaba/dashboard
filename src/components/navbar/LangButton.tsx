@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import {IconButton} from "@mui/material";
 import ReactCountryFlag from "react-country-flag";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
+import {Lang, toggleLang} from "../../redux/langSlice";
 
 const LangButton: React.FC = () => {
-    // TODO - this will be a selector from store
-    const [lang, setLang] = useState<"PL" | "GB">("GB");
+    const lang = useSelector<RootState, Lang>(state => state.lang.current);
+    const dispatch = useDispatch();
 
-    // TODO - this will dispatch an action
     const switchLang = () => {
-        setLang(lang => lang === "PL" ? "GB" : "PL");
+        dispatch(toggleLang());
     }
 
     return (
         <IconButton onClick={switchLang}>
-            <ReactCountryFlag countryCode={lang} svg/>
+            <ReactCountryFlag countryCode={lang === "PL" ? "PL" : "GB"} svg/>
         </IconButton>
     );
 };

@@ -6,7 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const AccountButton: React.FC = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState<boolean>(false);
-    const anchorRef = useRef<HTMLElement>(null);
+    const anchorRef = useRef<HTMLElement>({} as HTMLElement);
 
     const toggle = () => {
         setOpen(open => !open);
