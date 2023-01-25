@@ -1,14 +1,16 @@
 import React from "react";
-import AccountCard from "./AccountCard";
-import CommentList from "../feedback/CommentList";
-import {Stack} from "@mui/material";
+import {useSelector} from "react-redux";
+import languages from "../../../redux/lang/languages";
+import {langSelector} from "../../../redux/lang/langSlice";
 
 const Account: React.FC = () => {
+    const lang = useSelector(langSelector);
     return (
-        <Stack spacing={3}>
-            <AccountCard/>
-            <CommentList/>
-        </Stack>
+        <div>
+            <h1>
+                {languages.get(lang)!.account}
+            </h1>
+        </div>
     );
 };
 

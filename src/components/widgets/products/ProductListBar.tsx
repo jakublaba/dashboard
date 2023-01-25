@@ -21,20 +21,20 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
         <MenuItem>
             <Stack spacing={5} direction={"row"}>
                 <div>
-                    {languages.get(lang)!.widgets.products.productMenuBar.product}
+                    {languages.get(lang)!.productMenuBar.product}
                 </div>
                 <div>
-                    {languages.get(lang)!.widgets.products.productMenuBar.status}
+                    {languages.get(lang)!.productMenuBar.status}
                 </div>
                 <div>
-                    {languages.get(lang)!.widgets.products.productMenuBar.price}
+                    {languages.get(lang)!.productMenuBar.price}
                 </div>
                 <div>
                     <IconButton onClick={toggleSortDirectionHandler}>
                         {sortAscending ? <ArrowCircleUpIcon/> : <ArrowCircleDownIcon/>}
                     </IconButton>
                     <Button onClick={toggleSortCriteriaHandler}>
-                        {languages.get(lang)!.widgets.products.productMenuBar.sortCriteria.get(sortCriteria)}
+                        {languages.get(lang)!.productMenuBar.sortCriteria.get(sortCriteria)}
                     </Button>
                 </div>
             </Stack>

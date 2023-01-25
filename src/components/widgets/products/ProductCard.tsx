@@ -26,7 +26,7 @@ const ProductCard: React.FC<Product> = (productProps) => {
                 {productProps.name}
                 <ProductStatus status={productProps.status}/>
                 <div>
-                    {`${productProps.price}${languages.get(lang)!.widgets.products.currency}`}
+                    {`${productProps.price}${languages.get(lang)!.currency}`}
                 </div>
                 <div>
                     {productProps.sortBy === "rating" ? productProps.avgRating : productProps.sold}

@@ -23,7 +23,7 @@ const ProductStatus: React.FC<{ status: StatusType }> = ({status}) => {
             backgroundColor: styles.get(status)?.card,
             color: styles.get(status)?.font
         }}>
-            {languages.get(lang)!.widgets.products.orderStatus.get(status)}
+            {languages.get(lang)!.orderStatus.get(status)}
         </Paper>
     );
 };
