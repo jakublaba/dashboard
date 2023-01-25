@@ -5,7 +5,7 @@ import {ProductRanking} from "./components/ProductRanking";
 import {ctxAuth} from "./auth/auth";
 import {Orders} from "./components/Orders";
 import {CustomerFeedback} from "./components/CustomerFeedback";
-import {SalesChart} from "./components/SalesChart";
+import SalesChart from "./components/SalesChart";
 import {MyAccount} from "./components/MyAccount";
 
 function App() {
