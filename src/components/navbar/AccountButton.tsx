@@ -49,13 +49,13 @@ const AccountButton: React.FC = () => {
                                         setOpen(false);
                                         navigate("/");
                                     }}>
-                                        {languages.get(lang)!.home}
+                                        {languages.get(lang)!.navbar.profContextMenu.home}
                                     </MenuItem>
                                     <MenuItem onClick={() => {
                                         setOpen(false);
                                         navigate("/account");
                                     }}>
-                                        {languages.get(lang)!.account}
+                                        {languages.get(lang)!.navbar.profContextMenu.account}
                                     </MenuItem>
                                 </MenuList>
                             </ClickAwayListener>

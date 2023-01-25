@@ -1,45 +1,67 @@
 import {Lang} from "./langSlice";
 
 const PL = {
-    currency: "pln",
-    orderStatus: new Map([
-        ["out", "Brak na stanie"],
-        ["low", "Niewiele"],
-        ["in", "Na stanie"]
-    ]),
-    home: "Strona domowa",
-    account: "Konto",
-    productMenuBar: {
-        product: "Produkt",
-        status: "Status",
-        price: "Cena",
-        sortCriteria: new Map([
-            ["rating", "Śr ocena"],
-            ["sold", "Sprzedanych"]
-        ])
+    navbar: {
+        profContextMenu: {
+            account: "Konto",
+            home: "Strona domowa"
+        }
     },
-    profPicAlt: "Zdjęcie profilowe"
+    widgets: {
+        products: {
+            currency: "pln",
+            orderStatus: new Map([
+                ["out", "Brak na stanie"],
+                ["low", "Niewiele"],
+                ["in", "Na stanie"]
+            ]),
+            productMenuBar: {
+                product: "Produkt",
+                status: "Status",
+                price: "Cena",
+                sortCriteria: new Map([
+                    ["rating", "Śr ocena"],
+                    ["sold", "Sprzedanych"]
+                ])
+            },
+        },
+        account: {
+            username: "Użytkownik",
+            email: "user@example.com"
+        }
+    }
 };
 
 const EN: typeof PL = {
-    currency: "$",
-    orderStatus: new Map([
-        ["out", "Out of stock"],
-        ["low", "Low stock"],
-        ["in", "In stock"]
-    ]),
-    home: "Home",
-    account: "Account",
-    productMenuBar: {
-        product: "Product",
-        status: "Status",
-        price: "Price",
-        sortCriteria: new Map([
-            ["rating", "Avg rating"],
-            ["sold", "Sold"]
-        ])
+    navbar: {
+        profContextMenu: {
+            account: "Account",
+            home: "Home"
+        }
     },
-    profPicAlt: "Profile picture"
+    widgets: {
+        products: {
+            currency: "$",
+            orderStatus: new Map([
+                ["out", "Out of stock"],
+                ["low", "Low stock"],
+                ["in", "In stock"]
+            ]),
+            productMenuBar: {
+                product: "Product",
+                status: "Stock",
+                price: "Price",
+                sortCriteria: new Map([
+                    ["rating", "Avg rating"],
+                    ["sold", "Sold"]
+                ])
+            },
+        },
+        account: {
+            username: "User",
+            email: "user@example.com"
+        }
+    }
 }
 
 const languages = new Map<Lang, typeof PL>([
