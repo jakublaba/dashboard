@@ -7,21 +7,15 @@ import Chart from "./components/Chart";
 import Account from "./components/Account";
 import Feedback from "./components/Feedback";
 import ProductList from "./components/widgets/products/ProductList";
-import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
+import {useSelector} from "react-redux";
+import themes from "./redux/theme/themes";
+import {themeSelector} from "./redux/theme/themeSlice";
 
-const lightTheme = createTheme({
-    palette: {
-        mode: "light"
-    }
-});
-
-const darkTheme = createTheme({
-    palette: {
-        mode: "dark"
-    }
-});
 
 const App: React.FC = () => {
+    const themeMode = useSelector(themeSelector);
+
     const router = createBrowserRouter(
         createRoutesFromElements([
             <Route element={<Navbar/>}>
@@ -36,7 +30,7 @@ const App: React.FC = () => {
     );
 
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={themes.get(themeMode)!}>
             <CssBaseline/>
             <RouterProvider router={router}/>
         </ThemeProvider>
