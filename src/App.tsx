@@ -4,7 +4,6 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} f
 import Navbar from "./components/navbar/Navbar";
 import Ranking from "./components/Ranking";
 import Account from "./components/widgets/account/Account";
-import Feedback from "./components/Feedback";
 import ProductList from "./components/widgets/products/ProductList";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import {useSelector} from "react-redux";
@@ -21,7 +20,6 @@ const App: React.FC = () => {
             <Route element={<Navbar/>}>
                 <Route path="/" element={<ProductList/>}/>
                 <Route path="orders" element={<ProductList/>}/>
-                <Route path="feedback" element={<Feedback/>}></Route>
                 <Route path="ranking" element={<Ranking/>}></Route>
                 <Route path="chart" element={<SalesChart/>}></Route>
                 <Route path="account" element={<Account/>}></Route>
