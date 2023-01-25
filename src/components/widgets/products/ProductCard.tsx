@@ -4,7 +4,7 @@ import StarIcon from "@mui/icons-material/Star";
 import {MenuItem, Stack} from "@mui/material";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import languages from "../../../lang/languages";
+import languages from "../../../redux/lang/languages";
 
 export interface Product {
     imgSrc: string,

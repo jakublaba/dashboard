@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import languages from "../../lang/languages";
+import languages from "../../redux/lang/languages";
 
 const AccountButton: React.FC = () => {
     const navigate = useNavigate();

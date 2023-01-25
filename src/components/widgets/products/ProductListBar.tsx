@@ -4,7 +4,7 @@ import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import languages from "../../../lang/languages";
+import languages from "../../../redux/lang/languages";
 
 export interface ProductListBarProps {
     sortCriteria: "rating" | "sold",

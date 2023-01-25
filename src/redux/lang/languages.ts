@@ -1,4 +1,4 @@
-import {Lang} from "../redux/langSlice";
+import {Lang} from "./langSlice";
 
 const PL = {
     currency: "pln",
