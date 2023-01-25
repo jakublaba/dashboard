@@ -25,7 +25,7 @@ const App: React.FC = () => {
     const router = createBrowserRouter(
         createRoutesFromElements([
             <Route element={<Navbar/>}>
-                <Route path="/" element={<Account/>}/>
+                <Route path="/" element={<ProductList/>}/>
                 <Route path="orders" element={<ProductList/>}/>
                 <Route path="feedback" element={<Feedback/>}></Route>
                 <Route path="ranking" element={<Ranking/>}></Route>

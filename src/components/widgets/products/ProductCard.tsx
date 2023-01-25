@@ -2,6 +2,9 @@ import React from "react";
 import ProductStatus, {StatusType} from "./ProductStatus";
 import StarIcon from "@mui/icons-material/Star";
 import {MenuItem, Stack} from "@mui/material";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
+import languages from "../../../lang/languages";
 
 export interface Product {
     imgSrc: string,
@@ -15,6 +18,8 @@ export interface Product {
 
 // TODO - improve text alignment
 const ProductCard: React.FC<Product> = (productProps) => {
+    const lang = useSelector((state: RootState) => state.lang.current);
+
     return (
         <MenuItem>
             <Stack spacing={5} direction={"row"}>
@@ -22,7 +27,7 @@ const ProductCard: React.FC<Product> = (productProps) => {
                 {productProps.name}
                 <ProductStatus status={productProps.status}/>
                 <div>
-                    {`${productProps.price}$`}
+                    {`${productProps.price}${languages.get(lang)!.currency}`}
                 </div>
                 <div>
                     {productProps.sortBy === "rating" ? productProps.avgRating : productProps.sold}
