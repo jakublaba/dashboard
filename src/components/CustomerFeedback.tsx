@@ -27,6 +27,10 @@ const user2 = {
 const rating = 3.47;
 
 export const CustomerFeedback = (): JSX.Element => {
+  var options = {
+    legend: "none",
+  };
+
   return (
     <div className="content">
       <div className="chart">
@@ -35,6 +39,7 @@ export const CustomerFeedback = (): JSX.Element => {
           data={data}
           width={"100%"}
           height={"500px"}
+          options={options}
         />
         <h4
           style={{
