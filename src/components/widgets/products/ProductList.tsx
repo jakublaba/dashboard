@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import products from "../../../placeholder-data/products";
 import ProductCard from "./ProductCard";
 import ProductListBar from "./ProductListBar";
-import {Menu} from "@mui/material";
+import {MenuList} from "@mui/material";
 
 const ProductList: React.FC = () => {
     const [sortCriteria, setSortCriteria] = useState<"rating" | "sold">("rating");
@@ -17,7 +17,7 @@ const ProductList: React.FC = () => {
     };
 
     return (
-        <Menu open>
+        <MenuList>
             <ProductListBar
                 sortCriteria={sortCriteria}
                 sortAscending={sortAscending}
@@ -41,7 +41,7 @@ const ProductList: React.FC = () => {
                         sortBy={sortCriteria}
                     />
                 ))}
-        </Menu>
+        </MenuList>
     );
 };
 
