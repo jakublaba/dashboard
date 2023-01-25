@@ -1,52 +1,46 @@
-import React, {useState} from 'react';
-import './styles/App.css';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
-import {ProductRanking} from "./components/ProductRanking";
-import {ctxAuth} from "./auth/auth";
-import {Orders} from "./components/Orders";
-import {CustomerFeedback} from "./components/CustomerFeedback";
-import SalesChart from "./components/SalesChart";
-import {MyAccount} from "./components/MyAccount";
+import React from "react";
+import "./styles/App.css";
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Ranking from "./components/Ranking";
+import Chart from "./components/Chart";
+import Account from "./components/Account";
+import Feedback from "./components/Feedback";
+import ProductList from "./components/widgets/products/ProductList";
+import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 
-function App() {
-    let [authState, setAuthState] = useState<object>({
-        isLoggedIn: false,
-        who: null
-    });
+const lightTheme = createTheme({
+    palette: {
+        mode: "light"
+    }
+});
 
-    const login = (username: string): void => {
-        setAuthState({
-            isLoggedIn: true,
-            who: username
-        });
-    };
+const darkTheme = createTheme({
+    palette: {
+        mode: "dark"
+    }
+});
 
-    const logout = (): void => {
-        setAuthState({
-            isLoggedIn: false,
-            who: null
-        });
-    };
-
+const App: React.FC = () => {
     const router = createBrowserRouter(
         createRoutesFromElements([
-            <Route path="/">
-                <Route path="orders" element={<Orders/>}></Route>
-                <Route path="feedback" element={<CustomerFeedback/>}></Route>
-                <Route path="ranking" element={<ProductRanking/>}></Route>
-                <Route path="chart" element={<SalesChart/>}></Route>
-                <Route path="account" element={<MyAccount/>}></Route>
+            <Route element={<Navbar/>}>
+                <Route path="/" element={<ProductList/>}/>
+                <Route path="orders" element={<ProductList/>}/>
+                <Route path="feedback" element={<Feedback/>}></Route>
+                <Route path="ranking" element={<Ranking/>}></Route>
+                <Route path="chart" element={<Chart/>}></Route>
+                <Route path="account" element={<Account/>}></Route>
             </Route>
         ])
     );
 
     return (
-        <div className="App">
-            <ctxAuth.Provider value={{authState, login, logout}}>
-                <RouterProvider router={router}/>
-            </ctxAuth.Provider>
-        </div>
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline/>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
     );
-}
+};
 
 export default App;
