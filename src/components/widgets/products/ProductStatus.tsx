@@ -1,5 +1,5 @@
 import React from "react";
-import {Paper} from "@mui/material";
+import {Paper, Stack} from "@mui/material";
 import {useSelector} from "react-redux";
 import languages from "../../../redux/lang/languages";
 import {langSelector} from "../../../redux/lang/langSlice";
@@ -16,13 +16,17 @@ const ProductStatus: React.FC<{ status: StatusType }> = ({status}) => {
     const lang = useSelector(langSelector);
 
     return (
-        <Paper style={{
-            textAlign: "center",
-            width: "fit-content",
-            height: "fit-content",
-            backgroundColor: styles.get(status)?.card,
-            color: styles.get(status)?.font
-        }}>
+        <Paper
+            component={Stack}
+            justifyContent={"center"}
+            style={{
+                textAlign: "center",
+                backgroundColor: styles.get(status)?.card,
+                color: styles.get(status)?.font,
+                width: 60,
+                height: 30
+            }}
+        >
             {languages.get(lang)!.widgets.products.productStatus.get(status)}
         </Paper>
     );

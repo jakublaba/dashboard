@@ -29,19 +29,31 @@ const PL = {
         products: {
             currency: "pln",
             productStatus: new Map<StatusType, string>([
-                ["out", "Brak na stanie"],
-                ["low", "Niewiele"],
-                ["in", "Na stanie"],
+                ["out", "Brak"],
+                ["low", "Mało"],
+                ["in", "Dużo"],
             ]),
             menuBar: {
                 product: "Produkt",
-                status: "Status",
+                status: "Magazyn",
                 price: "Cena",
-                sortCriteria: new Map([
-                    ["rating", "Śr ocena"],
-                    ["sold", "Sprzedanych"],
-                ]),
+                sortingCriteria: new Map([
+                    ["rating", "Średnia ocena"],
+                    ["sold", "Liczba sprzedanych sztuk"]
+                ])
             },
+        },
+        chart: {
+            dropdowns: new Map([
+                ["type", ["Liniowy", "Słupkowy"]],
+                ["time", ["Dzień", "Miesiąc", "Rok"]],
+                ["values", ["Dochód", "Obrót"]]
+            ]),
+            months: [
+                "Sty", "Lut", "Mar", "Kwi",
+                "Maj", "Cze", "Lip", "Sie",
+                "Wrz", "Paź", "Lis", "Gru"
+            ]
         }
     },
 };
@@ -74,19 +86,31 @@ const EN: typeof PL = {
         products: {
             currency: "$",
             productStatus: new Map([
-                ["out", "Out of stock"],
-                ["low", "Low stock"],
-                ["in", "In stock"],
+                ["out", "Out"],
+                ["low", "Low"],
+                ["in", "High"],
             ]),
             menuBar: {
                 product: "Product",
-                status: "Status",
+                status: "Stock",
                 price: "Price",
-                sortCriteria: new Map([
-                    ["rating", "Avg rating"],
-                    ["sold", "Sold"],
-                ]),
+                sortingCriteria: new Map([
+                    ["rating", "Average rating"],
+                    ["sold", "Amount sold"]
+                ])
             },
+        },
+        chart: {
+            dropdowns: new Map([
+                ["type", ["Line", "Bar"]],
+                ["time", ["Day", "Month", "Year"]],
+                ["values", ["Profit", "Sold"]]
+            ]),
+            months: [
+                "Jan", "Feb", "Mar", "Apr",
+                "May", "Jun", "Jul", "Aug",
+                "Sep", "Oct", "Nov", "Dec"
+            ]
         }
     },
 };

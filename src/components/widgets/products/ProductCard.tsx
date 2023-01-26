@@ -26,31 +26,48 @@ const ProductCard: React.FC<Product> = (productProps) => {
                 direction={"row"}
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(5, 100px)",
-                    textAlign: "left",
+                    gridTemplateColumns: "repeat(4, 8vw)",
                     verticalAlign: "middle"
                 }}
             >
-                <Avatar src={require(`/src/resources/img/${productProps.imgSrc}.svg`)} alt={productProps.name}/>
-                {productProps.name}
-                <ProductStatus status={productProps.status}/>
-                <div>
-                    {`${productProps.price}${languages.get(lang)!.widgets.products.currency}`}
-                </div>
                 <Stack
+                    spacing={1}
                     direction={"row"}
-                    style={{
-                        alignItems: "right"
-                    }}
                 >
-                    {productProps.sortBy === "rating" ? productProps.avgRating : productProps.sold}
-                    {productProps.sortBy === "rating" && (
-                        <StarIcon
-                            style={{
-                                verticalAlign: "text-top"
-                            }}
-                        />
-                    )}
+                    <Avatar
+                        variant={"rounded"}
+                        src={require(`/src/resources/img/${productProps.imgSrc}.svg`)} alt={productProps.name}
+                        style={{
+                            width: 50,
+                            height: 50
+                        }}
+                    />
+                    <Stack justifyContent={"center"}>
+                        {productProps.name}
+                    </Stack>
+                </Stack>
+                <Stack justifyContent={"center"}>
+                    <ProductStatus status={productProps.status}/>
+                </Stack>
+                <Stack justifyContent={"center"}>
+                    {`${productProps.price}${languages.get(lang)!.widgets.products.currency}`}
+                </Stack>
+                <Stack justifyContent={"center"}>
+                    <Stack
+                        direction={"row"}
+                        style={{
+                            transform: "translate(1vw, 0)"
+                        }}
+                    >
+                        {productProps.sortBy === "rating" ? productProps.avgRating : productProps.sold}
+                        {productProps.sortBy === "rating" && (
+                            <StarIcon
+                                style={{
+                                    verticalAlign: "text-top"
+                                }}
+                            />
+                        )}
+                    </Stack>
                 </Stack>
             </Stack>
         </MenuItem>
