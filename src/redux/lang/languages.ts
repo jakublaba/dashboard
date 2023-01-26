@@ -37,7 +37,23 @@ const PL = {
                 product: "Produkt",
                 status: "Magazyn",
                 price: "Cena",
+                sortingCriteria: new Map([
+                    ["rating", "Średnia ocena"],
+                    ["sold", "Liczba sprzedanych sztuk"]
+                ])
             },
+        },
+        chart: {
+            dropdowns: new Map([
+                ["type", ["Liniowy", "Słupkowy"]],
+                ["time", ["Dzień", "Miesiąc", "Rok"]],
+                ["values", ["Dochód", "Obrót"]]
+            ]),
+            months: [
+                "Sty", "Lut", "Mar", "Kwi",
+                "Maj", "Cze", "Lip", "Sie",
+                "Wrz", "Paź", "Lis", "Gru"
+            ]
         }
     },
 };
@@ -78,7 +94,23 @@ const EN: typeof PL = {
                 product: "Product",
                 status: "Stock",
                 price: "Price",
+                sortingCriteria: new Map([
+                    ["rating", "Average rating"],
+                    ["sold", "Amount sold"]
+                ])
             },
+        },
+        chart: {
+            dropdowns: new Map([
+                ["type", ["Line", "Bar"]],
+                ["time", ["Day", "Month", "Year"]],
+                ["values", ["Profit", "Sold"]]
+            ]),
+            months: [
+                "Jan", "Feb", "Mar", "Apr",
+                "May", "Jun", "Jul", "Aug",
+                "Sep", "Oct", "Nov", "Dec"
+            ]
         }
     },
 };
