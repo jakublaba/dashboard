@@ -1,10 +1,12 @@
-import React from "react";
-import {Button, IconButton, MenuItem, Paper, Stack, Typography} from "@mui/material";
+import React, {useRef, useState} from "react";
+import {Grow, IconButton, MenuItem, Paper, Popper, Stack, Typography} from "@mui/material";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import {useSelector} from "react-redux";
 import languages from "../../../redux/lang/languages";
 import {langSelector} from "../../../redux/lang/langSlice";
+import SellIcon from "@mui/icons-material/Sell";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 
 export interface ProductListBarProps {
     sortCriteria: "rating" | "sold",
@@ -16,6 +18,12 @@ export interface ProductListBarProps {
 const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
     const {sortCriteria, sortAscending, toggleSortCriteriaHandler, toggleSortDirectionHandler} = {...productBarProps};
     const lang = useSelector(langSelector);
+    const anchorRef = useRef<HTMLButtonElement>(null);
+    const [toolTipVisible, setToolTipVisible] = useState<boolean>(false);
+    const criteriaIcons = new Map([
+        ["rating", <PointOfSaleIcon/>],
+        ["sold", <SellIcon/>]
+    ]);
 
     return (
         <MenuItem>
@@ -24,14 +32,13 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
                 direction={"row"}
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(5, 100px)",
+                    gridTemplateColumns: "repeat(4, 8vw)",
                     textAlign: "left"
                 }}
             >
                 <Typography variant={"subtitle1"}>
                     {languages.get(lang)!.widgets.products.menuBar.product}
                 </Typography>
-                <div/>
                 <Typography variant={"subtitle1"}>
                     {languages.get(lang)!.widgets.products.menuBar.status}
                 </Typography>
@@ -47,9 +54,30 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
                     <IconButton onClick={toggleSortDirectionHandler}>
                         {sortAscending ? <ArrowCircleUpIcon/> : <ArrowCircleDownIcon/>}
                     </IconButton>
-                    <Button onClick={toggleSortCriteriaHandler}>
-                        {languages.get(lang)!.widgets.products.menuBar.sortCriteria.get(sortCriteria)}
-                    </Button>
+                    <IconButton
+                        ref={anchorRef}
+                        onClick={toggleSortCriteriaHandler}
+                        onMouseEnter={() => setToolTipVisible(true)}
+                        onMouseLeave={() => setToolTipVisible(false)}
+                    >
+                        {criteriaIcons.get(sortCriteria)}
+                    </IconButton>
+                    <Popper
+                        open={toolTipVisible}
+                        anchorEl={anchorRef.current}
+                        transition
+                        disablePortal
+                    >
+                        {({TransitionProps}) => (
+                            <Grow
+                                {...TransitionProps}
+                            >
+                                <Paper>
+                                    {`Sort by ${sortCriteria === "rating" ? "average rating" : "Items sold"}`}
+                                </Paper>
+                            </Grow>
+                        )}
+                    </Popper>
                 </Paper>
             </Stack>
         </MenuItem>

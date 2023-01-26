@@ -29,18 +29,14 @@ const PL = {
         products: {
             currency: "pln",
             productStatus: new Map<StatusType, string>([
-                ["out", "Brak na stanie"],
-                ["low", "Niewiele"],
-                ["in", "Na stanie"],
+                ["out", "Brak"],
+                ["low", "Mało"],
+                ["in", "Dużo"],
             ]),
             menuBar: {
                 product: "Produkt",
-                status: "Status",
+                status: "Magazyn",
                 price: "Cena",
-                sortCriteria: new Map([
-                    ["rating", "Śr ocena"],
-                    ["sold", "Sprzedanych"],
-                ]),
             },
         }
     },
@@ -74,18 +70,14 @@ const EN: typeof PL = {
         products: {
             currency: "$",
             productStatus: new Map([
-                ["out", "Out of stock"],
-                ["low", "Low stock"],
-                ["in", "In stock"],
+                ["out", "Out"],
+                ["low", "Low"],
+                ["in", "High"],
             ]),
             menuBar: {
                 product: "Product",
-                status: "Status",
+                status: "Stock",
                 price: "Price",
-                sortCriteria: new Map([
-                    ["rating", "Avg rating"],
-                    ["sold", "Sold"],
-                ]),
             },
         }
     },

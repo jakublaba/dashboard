@@ -17,7 +17,12 @@ const ProductList: React.FC = () => {
     };
 
     return (
-        <Paper elevation={1}>
+        <Paper
+            elevation={1}
+            style={{
+                width: "33vw",
+            }}
+        >
             <MenuList>
                 <ProductListBar
                     sortCriteria={sortCriteria}

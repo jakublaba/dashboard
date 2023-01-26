@@ -6,7 +6,6 @@ import languages from "../../../redux/lang/languages";
 
 const AccountCard: React.FC = () => {
     const lang = useSelector(langSelector);
-    const picture = require("../../../resources/img/profile_pic.svg") as string;
 
     return (
         <Card>
