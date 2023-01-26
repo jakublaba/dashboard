@@ -12,7 +12,7 @@ const SalesBarChart: React.FC = () => {
     const [timestamp, setTimestamp] = useState<"daily" | "weekly" | "monthly">(
         "daily"
     );
-    const [value, setValue] = useState<"sold" | "profit">("profit");
+    const [value, setValue] = useState<"sales" | "profit">("profit");
 
     const [chartData, setChartData] = useState([
         {
@@ -61,7 +61,7 @@ const SalesBarChart: React.FC = () => {
 
     useEffect(() => {
         if (chart) {
-            if (value === "sold") {
+            if (value === "sales") {
                 const soldAmountData = [10, 41, 35, 51, 49, 62, 69, 91, 148];
                 setChartData([{name: "Products sold", data: soldAmountData}]);
             } else {

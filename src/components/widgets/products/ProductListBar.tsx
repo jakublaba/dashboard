@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 import languages from "../../../redux/lang/languages";
 import {langSelector} from "../../../redux/lang/langSlice";
 import SellIcon from "@mui/icons-material/Sell";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import StarsIcon from "@mui/icons-material/Stars";
 
 export interface ProductListBarProps {
     sortCriteria: "rating" | "sold",
@@ -21,7 +21,7 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
     const anchorRef = useRef<HTMLButtonElement>(null);
     const [toolTipVisible, setToolTipVisible] = useState<boolean>(false);
     const criteriaIcons = new Map([
-        ["rating", <PointOfSaleIcon/>],
+        ["rating", <StarsIcon/>],
         ["sold", <SellIcon/>]
     ]);
 
@@ -73,7 +73,7 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
                                 {...TransitionProps}
                             >
                                 <Paper>
-                                    {`Sort by ${sortCriteria === "rating" ? "average rating" : "Items sold"}`}
+                                    {languages.get(lang)!.widgets.products.menuBar.sortingCriteria.get(sortCriteria)!}
                                 </Paper>
                             </Grow>
                         )}
