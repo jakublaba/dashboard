@@ -13,7 +13,7 @@ const CommentList: React.FC = () => {
                         direction={"row"}
                         spacing={3}
                     >
-                        {Array.from(Array(3).keys()).map(() => (
+                        {Array.from(Array(4).keys()).map(() => (
                             <CommentCard rating={randomRating()}/>
                         ))}
                     </Stack>
