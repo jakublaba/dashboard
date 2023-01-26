@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, IconButton, MenuItem, Stack} from "@mui/material";
+import {Button, IconButton, MenuItem, Paper, Stack, Typography} from "@mui/material";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import {useSelector} from "react-redux";
@@ -19,24 +19,38 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
 
     return (
         <MenuItem>
-            <Stack spacing={5} direction={"row"}>
-                <div>
+            <Stack
+                spacing={5}
+                direction={"row"}
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(5, 100px)",
+                    textAlign: "left"
+                }}
+            >
+                <Typography variant={"subtitle1"}>
                     {languages.get(lang)!.widgets.products.productMenuBar.product}
-                </div>
-                <div>
+                </Typography>
+                <div/>
+                <Typography variant={"subtitle1"}>
                     {languages.get(lang)!.widgets.products.productMenuBar.status}
-                </div>
-                <div>
+                </Typography>
+                <Typography variant={"subtitle1"}>
                     {languages.get(lang)!.widgets.products.productMenuBar.price}
-                </div>
-                <div>
+                </Typography>
+                <Paper
+                    style={{
+                        width: "fit-content",
+                        height: "fit-content"
+                    }}
+                >
                     <IconButton onClick={toggleSortDirectionHandler}>
                         {sortAscending ? <ArrowCircleUpIcon/> : <ArrowCircleDownIcon/>}
                     </IconButton>
                     <Button onClick={toggleSortCriteriaHandler}>
                         {languages.get(lang)!.widgets.products.productMenuBar.sortCriteria.get(sortCriteria)}
                     </Button>
-                </div>
+                </Paper>
             </Stack>
         </MenuItem>
     );
