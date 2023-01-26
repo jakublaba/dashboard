@@ -1,68 +1,96 @@
 import {Lang} from "./langSlice";
+import {StatusType} from "../../components/widgets/products/ProductStatus";
 
 const PL = {
     navbar: {
-        profContextMenu: {
-            account: "Konto",
-            home: "Strona domowa"
-        }
+        home: "Strona domowa",
+        account: "Konto"
     },
     widgets: {
+        account: {
+            username: "Użytkownik"
+        },
+        orders: {
+            order: "Zamówienie",
+            status: "Status",
+            date: "Data",
+            price: "Cena",
+            seller: "Sprzedawca",
+            buyer: "Kupujący",
+            products: "Produkty",
+            orderStatus: new Map([
+                ["Awaiting", "Oczekujące"],
+                ["Paid", "Opłacone"],
+                ["Sent", "Wysłane"],
+                ["Received", "Otrzymane"],
+                ["Returned", "Zwrócone"],
+            ]),
+        },
         products: {
             currency: "pln",
-            orderStatus: new Map([
+            productStatus: new Map<StatusType, string>([
                 ["out", "Brak na stanie"],
                 ["low", "Niewiele"],
-                ["in", "Na stanie"]
+                ["in", "Na stanie"],
             ]),
-            productMenuBar: {
+            menuBar: {
                 product: "Produkt",
                 status: "Status",
                 price: "Cena",
                 sortCriteria: new Map([
                     ["rating", "Śr ocena"],
-                    ["sold", "Sprzedanych"]
-                ])
+                    ["sold", "Sprzedanych"],
+                ]),
             },
-        },
-        account: {
-            username: "Użytkownik",
-            email: "user@example.com"
         }
-    }
+    },
 };
 
 const EN: typeof PL = {
     navbar: {
-        profContextMenu: {
-            account: "Account",
-            home: "Home"
-        }
+        home: "Home",
+        account: "Account"
     },
     widgets: {
+        account: {
+            username: "User"
+        },
+        orders: {
+            order: "Order",
+            status: "Status",
+            date: "Date",
+            price: "Price",
+            seller: "Seller",
+            buyer: "Buyer",
+            products: "Products",
+            orderStatus: new Map([
+                ["Awaiting", "Awaiting"],
+                ["Paid", "Paid"],
+                ["Sent", "Sent"],
+                ["Received", "Received"],
+                ["Returned", "Returned"],
+            ]),
+        },
         products: {
             currency: "$",
-            orderStatus: new Map([
+            productStatus: new Map([
                 ["out", "Out of stock"],
                 ["low", "Low stock"],
-                ["in", "In stock"]
+                ["in", "In stock"],
             ]),
-            productMenuBar: {
+            menuBar: {
                 product: "Product",
-                status: "Stock",
+                status: "Status",
                 price: "Price",
                 sortCriteria: new Map([
                     ["rating", "Avg rating"],
-                    ["sold", "Sold"]
-                ])
+                    ["sold", "Sold"],
+                ]),
             },
-        },
-        account: {
-            username: "User",
-            email: "user@example.com"
         }
-    }
-}
+    },
+};
+
 
 const languages = new Map<Lang, typeof PL>([
     ["PL", PL],

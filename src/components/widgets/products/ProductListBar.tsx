@@ -29,14 +29,14 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
                 }}
             >
                 <Typography variant={"subtitle1"}>
-                    {languages.get(lang)!.widgets.products.productMenuBar.product}
+                    {languages.get(lang)!.widgets.products.menuBar.product}
                 </Typography>
                 <div/>
                 <Typography variant={"subtitle1"}>
-                    {languages.get(lang)!.widgets.products.productMenuBar.status}
+                    {languages.get(lang)!.widgets.products.menuBar.status}
                 </Typography>
                 <Typography variant={"subtitle1"}>
-                    {languages.get(lang)!.widgets.products.productMenuBar.price}
+                    {languages.get(lang)!.widgets.products.menuBar.price}
                 </Typography>
                 <Paper
                     style={{
@@ -48,7 +48,7 @@ const ProductListBar: React.FC<ProductListBarProps> = (productBarProps) => {
                         {sortAscending ? <ArrowCircleUpIcon/> : <ArrowCircleDownIcon/>}
                     </IconButton>
                     <Button onClick={toggleSortCriteriaHandler}>
-                        {languages.get(lang)!.widgets.products.productMenuBar.sortCriteria.get(sortCriteria)}
+                        {languages.get(lang)!.widgets.products.menuBar.sortCriteria.get(sortCriteria)}
                     </Button>
                 </Paper>
             </Stack>

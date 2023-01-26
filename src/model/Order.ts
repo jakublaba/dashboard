@@ -4,7 +4,7 @@ import {UserSchema} from "./User";
 import {OrderStatus} from "./Status";
 
 export const OrderSchema = z.object({
-    id: z.bigint(),
+    id: z.string(),
     seller: UserSchema
         .refine((usr) => usr.role === "Seller", {message: "seller must have \"Seller\" role"}),
     buyer: UserSchema
