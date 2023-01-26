@@ -1,8 +1,8 @@
 import React from "react";
 import {Paper} from "@mui/material";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../redux/store";
-import languages from "../../../lang/languages";
+import languages from "../../../redux/lang/languages";
+import {langSelector} from "../../../redux/lang/langSlice";
 
 export type StatusType = "out" | "low" | "in";
 
@@ -13,7 +13,7 @@ const styles = new Map<StatusType, { card: string, font: string }>([
 ]);
 
 const ProductStatus: React.FC<{ status: StatusType }> = ({status}) => {
-    const lang = useSelector((state: RootState) => state.lang.current);
+    const lang = useSelector(langSelector);
 
     return (
         <Paper style={{
@@ -23,7 +23,7 @@ const ProductStatus: React.FC<{ status: StatusType }> = ({status}) => {
             backgroundColor: styles.get(status)?.card,
             color: styles.get(status)?.font
         }}>
-            {languages.get(lang)!.orderStatus.get(status)}
+            {languages.get(lang)!.widgets.products.productStatus.get(status)}
         </Paper>
     );
 };

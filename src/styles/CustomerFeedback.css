@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.coment-section {
+  max-width: 200px;
+  max-height: 150px;
+  margin: 15% 0px 0px 5%;
+  float: "right";
+}
+
+.chart {
+  margin: 10% 0px 0px 10%;
+  padding: 10px;
+  width: 40%;
+}

@@ -1,23 +1,23 @@
-import {Product} from "../components/widgets/products/ProductCard";
+import {Product} from "../../components/widgets/products/ProductCard";
 
 const products: Product[] = [
     {
         imgSrc: "chester",
-        name: "Karma dla chesterów",
+        name: "Cheetos",
         status: "in",
         price: 8,
         avgRating: 3.6,
         sold: 72
     }, {
         imgSrc: "dingochlebki",
-        name: "Dingochlebki",
+        name: "Chlebek's",
         status: "out",
         price: 21,
         avgRating: 3.9,
         sold: 53
     }, {
         imgSrc: "bucik",
-        name: "Bucik (jedna sztuka)",
+        name: "Bucik (jeden)",
         status: "low",
         price: 37,
         avgRating: 4.1,

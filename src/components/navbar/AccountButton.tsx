@@ -3,14 +3,14 @@ import {ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper} 
 import {useNavigate} from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {useSelector} from "react-redux";
-import {RootState} from "../../redux/store";
-import languages from "../../lang/languages";
+import languages from "../../redux/lang/languages";
+import {langSelector} from "../../redux/lang/langSlice";
 
 const AccountButton: React.FC = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState<boolean>(false);
     const anchorRef = useRef<HTMLButtonElement>(null);
-    const lang = useSelector((state: RootState) => state.lang.current);
+    const lang = useSelector(langSelector);
 
     const handleToggle = () => {
         setOpen(open => !open);
@@ -49,13 +49,13 @@ const AccountButton: React.FC = () => {
                                         setOpen(false);
                                         navigate("/");
                                     }}>
-                                        {languages.get(lang)!.home}
+                                        {languages.get(lang)!.navbar.home}
                                     </MenuItem>
                                     <MenuItem onClick={() => {
                                         setOpen(false);
                                         navigate("/account");
                                     }}>
-                                        {languages.get(lang)!.account}
+                                        {languages.get(lang)!.navbar.account}
                                     </MenuItem>
                                 </MenuList>
                             </ClickAwayListener>

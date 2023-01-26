@@ -3,7 +3,7 @@ import {IconButton} from "@mui/material";
 import ReactCountryFlag from "react-country-flag";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import {Lang, toggleLang} from "../../redux/langSlice";
+import {Lang, toggleLang} from "../../redux/lang/langSlice";
 
 const LangButton: React.FC = () => {
     const lang = useSelector<RootState, Lang>(state => state.lang.current);
