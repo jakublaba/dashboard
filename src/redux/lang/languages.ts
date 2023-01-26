@@ -46,8 +46,8 @@ const PL = {
         chart: {
             dropdowns: new Map([
                 ["type", ["Liniowy", "Słupkowy"]],
-                ["time", ["Dzień", "Miesiąc", "Rok"]],
-                ["values", ["Dochód", "Obrót"]]
+                ["time", ["Rok", "Miesiąc", "Dzień"]],
+                ["values", ["Dochód", "Sprzedaż"]]
             ]),
             months: [
                 "Sty", "Lut", "Mar", "Kwi",
@@ -103,8 +103,8 @@ const EN: typeof PL = {
         chart: {
             dropdowns: new Map([
                 ["type", ["Line", "Bar"]],
-                ["time", ["Day", "Month", "Year"]],
-                ["values", ["Profit", "Sold"]]
+                ["time", ["Year", "Month", "Day"]],
+                ["values", ["Profit", "Sales"]]
             ]),
             months: [
                 "Jan", "Feb", "Mar", "Apr",
